@@ -1,14 +1,14 @@
-name: test
+name: Python package
 
 on:
   push:
     branches: [ main ]
-    path:
-      - 'tests/**'
+    paths:
+      - '**.py'
   pull_request:
     branches: [ main ]
-    path:
-      - 'tests/**'
+    paths:
+      - '**.py'
 
 jobs:
   build:
