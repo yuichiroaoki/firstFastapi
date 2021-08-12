@@ -9,14 +9,25 @@ class Mongodb:
         db = client[db_name]
         self.collection = db[collection_name]
 
-    def get_data(self):
+    def add_data(self, data: dict):
 
         try:
-            filter_data = {"sample": 1}
-            data = [i for i in self.collection.find(filter_data)]
-            names = [i["name"] for i in data]
 
-            return names
+            self.collection.insert_one(data)
+
+        except Exception as e:
+
+            error_message = str(e)
+
+            pprint({
+                "error_message": f"{error_message} - failed to add data"
+            })
+
+    def get_data(self, filter: dict):
+
+        try:
+            result = self.collection.find(filter)
+            return [i for i in result]
 
         except Exception as e:
 
