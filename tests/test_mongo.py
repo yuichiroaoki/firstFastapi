@@ -14,5 +14,5 @@ def test_add_data():
     mongodb.add_data(sample_data)
 
     name_John = {"name": "John"}
-    result = mongodb.get_data(name_John)
+    result = mongodb.get_data(name_John)[0]
     assert result == sample_data
