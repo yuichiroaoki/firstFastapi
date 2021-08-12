@@ -1,14 +1,14 @@
-name: test
+name: mongodb
 
 on:
   push:
     branches: [ main ]
     path:
-      - 'tests/**'
+      - 'mongodb/**'
   pull_request:
     branches: [ main ]
     path:
-      - 'tests/**'
+      - 'mongodb/**'
 
 jobs:
   build:
@@ -22,7 +22,6 @@ jobs:
         image: mongo
         ports:
           - 27017:27017
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
