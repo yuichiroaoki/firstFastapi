@@ -1,6 +1,14 @@
 name: Python package
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+    path:
+      - 'test/**'
+  pull_request:
+    branches: [ main ]
+    path:
+      - 'test/**'
 
 jobs:
   build:
