@@ -68,3 +68,7 @@ jobs:
 
 ![image](https://user-images.githubusercontent.com/45054071/129169331-4b243712-a805-4ffd-b1ac-8cd77d3ade26.png)
 
+参考
+* https://docs.github.com/ja/actions
+* https://docs.github.com/ja/actions/guides/building-and-testing-python
+* https://docs.github.com/ja/billing/managing-billing-for-github-actions/about-billing-for-github-actions
