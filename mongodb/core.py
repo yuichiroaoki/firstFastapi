@@ -1,6 +1,5 @@
 from pymongo import MongoClient
 from pprint import pprint
-import pandas as pd
 
 
 class Mongodb:

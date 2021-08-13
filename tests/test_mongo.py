@@ -1,6 +1,4 @@
 from mongodb.core import Mongodb
-from pprint import pprint
-import pandas as pd
 
 db_url = "mongodb://localhost:27017/"
 
