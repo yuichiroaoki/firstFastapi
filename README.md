@@ -11,6 +11,23 @@ Github社が提供するCI/CDツールです。
 ![image](https://user-images.githubusercontent.com/45054071/129161541-1fa373a6-8c4d-4232-8b3d-75885a6d43d2.png)  
 source: NIF CLOUD
 
+利点
+* 手動でビルド、テスト、デプロイする手間が省ける
+* いち早くバグやmergeコンフリクトを防ぐことができる  
+ー＞ 迅速なソフトウェア開発につながる
+
+### Github Actionsの特徴
+* 導入の手軽さ
+* 安い
+* テンプレートが豊富
+
+参考
+* https://github.com/marketplace?category=&query=&type=actions&verification=
+* https://docs.github.com/ja/actions/guides/building-and-testing-python
+* https://github.co.jp/features/actions
+* https://github.com/marketplace/circleci/
+* https://github.com/marketplace/travis-ci
+
 ## Github Actionsの始め方
 .github/workflows/ ディレクトリ以下にyamlファイルを配置するのみ
 
@@ -64,9 +81,36 @@ jobs:
  
 ![image](https://user-images.githubusercontent.com/45054071/129169042-6e30c6e8-72d3-4fa4-95c5-a49727fe1aa7.png)
 
+
 例２．pytestによるエラー
 
 ![image](https://user-images.githubusercontent.com/45054071/129169331-4b243712-a805-4ffd-b1ac-8cd77d3ade26.png)
+
+
+例３．自動でデプロイ
+
+```yaml
+      - id: deploy
+        uses: google-github-actions/deploy-appengine@main
+        with:
+          credentials: ${{ secrets.gcp_credentials }}
+```
+https://github.com/yuichiroaoki/github-actions-example/blob/bb716ae502dee12b9af23a7910eaebc34a5687da/.github/workflows/python.yml#L46-L49
+
+https://github.com/marketplace/actions/deploy-to-app-engine
+
+
+例４．他のDockerコンテナ（DB、RabbitMQなどのメッセージングサーバーなど）との連携のテストができ
+
+以下のようにポートを指定しmongodbのコンテナを起動させ、データのやり取りができる
+
+```yaml
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          - 27017:27017
+```
 
 参考
 * https://docs.github.com/ja/actions
