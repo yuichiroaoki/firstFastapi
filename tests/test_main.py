@@ -1,11 +1,10 @@
-from fastapi.testclient import TestClient
-
-from main import app
-
-client = TestClient(app)
+import main
 
 
-def test_read_main():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Hello World"}
+def test_index():
+    main.app.testing = True
+    client = main.app.test_client()
+
+    r = client.get('/')
+    assert r.status_code == 200
+    assert 'Hello World' in r.data.decode('utf-8')
