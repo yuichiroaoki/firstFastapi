@@ -74,8 +74,8 @@ jobs:
  4. pytestでコードのテスト
  
  
- #### どのように役に立つか
- 例１. ライブラリのバージョンコンフリクトを検知
+#### どのように役に立つか
+例１. ライブラリのバージョンコンフリクトを検知
  
  ![image](https://user-images.githubusercontent.com/45054071/129168929-2c85cf36-503d-4b00-8342-138ffd97811b.png)　
  
@@ -111,6 +111,10 @@ https://github.com/marketplace/actions/deploy-to-app-engine
         ports:
           - 27017:27017
 ```
+
+![image](https://user-images.githubusercontent.com/45054071/129349975-b090a9fb-df66-4f69-8157-0a6c9960829f.png)
+
+
 
 参考
 * https://docs.github.com/ja/actions
